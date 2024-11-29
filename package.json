@@ -1,20 +1,30 @@
 {
-	"name": "fcc-infosec-challenges",
-	"version": "0.0.1",
-	"description": "fcc backend boilerplate",
-	"main": "server.js",
-	"scripts": {
-		"start": "node myApp.js"
-	},
-	"dependencies": {
-		"express": "^4.14.0",
-		"helmet": "3.21.3"
-	},
-	"keywords": [
-		"node",
-		"hyperdev",
-		"express",
-		"freecodecamp"
-	],
-	"license": "MIT"
+  "name": "fcc-infosec-challenges",
+  "version": "0.0.1",
+  "description": "fcc backend boilerplate",
+  "main": "myApp.js",
+  "scripts": {
+    "start": "node myApp.js",
+    "dev": "concurrently \"cross-env NODE_ENV=development node myApp.js\" \"cross-env NODE_ENV=development npm run dev --prefix nextjs-frontend\"",
+    "dev:server": "cross-env NODE_ENV=development node myApp.js",
+    "dev:client": "cross-env NODE_ENV=development npm run dev --prefix nextjs-frontend",
+    "build": "npm run build:client",
+    "build:client": "cross-env NODE_ENV=production npm run build --prefix nextjs-frontend",
+    "start:client": "cross-env NODE_ENV=production npm start --prefix nextjs-frontend"
+  },
+  "dependencies": {
+    "express": "^4.21.1",
+    "helmet": "^3.21.3"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0",
+    "cross-env": "^7.0.3"
+  },
+  "keywords": [
+    "node",
+    "hyperdev",
+    "express",
+    "freecodecamp"
+  ],
+  "license": "MIT"
 }
